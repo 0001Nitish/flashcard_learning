@@ -1,0 +1,79 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  text-align: center;
+}
+
+.flashcard-list {
+  position: relative;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically*/
+  width: 100vw; /* Full viewport width*/
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+}
+
+.flashcard {
+  width: 200px;
+  height: 100px;
+  border: 10px solid #0c0e0d;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  background: #1e9911;
+  position: relative;
+  perspective: 1000px; /* Enable 3D effect for flipping */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flashcard-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide back side when facing away */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg); /* Position back side */
+}
+
+.flashcard-inner.flipped {
+  transform: rotateY(180deg); /* Flip effect */
+}
+
+.flip-button {
+  position: absolute;
+  bottom: 10px; /* Position at the bottom of the card */
+  padding: 5px 10px;
+  border: none;
+  background-color: #15b8d8;
+  color: rgb(14, 19, 7);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 2; /* Ensure button is above other content */
+}
+
+.flip-button:hover {
+  background-color: #0056b3;
+}
